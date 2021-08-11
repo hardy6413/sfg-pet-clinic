@@ -32,6 +32,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <configuration>
                     <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
         </plugins>
@@ -42,6 +43,6 @@
             scm:git:https://github.com/hardy6413/sfg-pet-clinic.git
         </developerConnection>
       <tag>HEAD</tag>
-  </scm>
+    </scm>
 
 </project>
