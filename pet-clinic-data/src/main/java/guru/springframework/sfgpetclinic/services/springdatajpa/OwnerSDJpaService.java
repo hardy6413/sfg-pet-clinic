@@ -26,6 +26,10 @@ public class OwnerSDJpaService implements OwnerService {
         this.petTypeRepository = petTypeRepository;
     }
 
+    @Override
+    public Owner findByLastName(String lastName) {
+        return ownerRepository.findByLastName(lastName);
+    }
 
     @Override
     public Set<Owner> findAll() {
@@ -55,8 +59,4 @@ public class OwnerSDJpaService implements OwnerService {
         ownerRepository.deleteById(aLong);
     }
 
-    @Override
-    public Owner findByLastName(String lastName) {
-        return ownerRepository.findByLastName(lastName);
-    }
 }
