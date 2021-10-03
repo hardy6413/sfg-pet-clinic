@@ -40,10 +40,10 @@ public class OwnersController {
     }
 
     @GetMapping("/{ownerId}")
-    public ModelAndView showOwner(@PathVariable Long ownerId){
-        ModelAndView mav = new ModelAndView("owners/ownerDetails");
-        mav.addObject(ownerService.findById(ownerId));
-        return  mav;
+    public String showOwner(@PathVariable Long ownerId, Model model){
+        model.addAttribute("owner",ownerService.findById(ownerId));
+
+        return  "owners/ownerDetails";
     }
 
     @GetMapping
@@ -82,7 +82,7 @@ public class OwnersController {
     }
 
     @PostMapping("/new")
-    public String processCreationForm(@Validated Owner owner, BindingResult result) {
+    public String processCreationForm(Owner owner, BindingResult result) {
         if (result.hasErrors()) {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
         }
